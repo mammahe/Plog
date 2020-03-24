@@ -1,6 +1,8 @@
 package com.example.logfilter;
 
-import android.util.Log;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 public class PLog {
 
@@ -24,204 +26,225 @@ public class PLog {
 
     public static void v(String tag, String msg) {
         if (Environment.LOGGING) {
-            Log.v(tag, getCallingMethod(4) + msg);
+            LoggerManager.getLogger().v(tag, getCallingMethod() + msg);
         }
     }
 
+    public static void v(String msg) {
+        if (Environment.LOGGING) {
+            LoggerManager.getLogger().v(msg);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void v(String tag, String format, Object arg) {
         if (Environment.LOGGING) {
             FormateClass ft = MessageFormatter.format(format, arg);
-            Log.v(tag, getCallingMethod(4) + ft.getMessage());
+            LoggerManager.getLogger().v(tag, getCallingMethod() + ft.getMessage());
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void v(String tag, String format, Object arg1, Object arg2) {
         if (Environment.LOGGING) {
             FormateClass ft = MessageFormatter.format(format, arg1, arg2);
-            Log.v(tag, getCallingMethod(4) + ft.getMessage());
+            LoggerManager.getLogger().v(tag, getCallingMethod() + ft.getMessage());
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void v(String tag, String format, Object[] args) {
         if (Environment.LOGGING) {
             FormateClass ft = MessageFormatter.format(format, args);
-            Log.v(tag, getCallingMethod(4) + ft.getMessage());
+            LoggerManager.getLogger().v(tag, getCallingMethod() + ft.getMessage());
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void v(String tag, String msg, Throwable throwable) {
         if (Environment.LOGGING) {
-            Log.v(tag, getCallingMethod(4) + msg, throwable);
+            LoggerManager.getLogger().v(tag, getCallingMethod() + msg, throwable);
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void d(String tag, String msg) {
         if (Environment.LOGGING) {
-            Log.d(tag, getCallingMethod(4) + msg);
+            LoggerManager.getLogger().d(tag, getCallingMethod() + msg);
         }
     }
 
+    public static void d(String msg) {
+        if (Environment.LOGGING) {
+            LoggerManager.getLogger().v(msg);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void d(String tag, String format, Object arg) {
         if (Environment.LOGGING) {
             FormateClass ft = MessageFormatter.format(format, arg);
-            Log.d(tag, getCallingMethod(4) + ft.getMessage());
+            LoggerManager.getLogger().d(tag, getCallingMethod() + ft.getMessage());
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void d(String tag, String format, Object arg1, Object arg2) {
         if (Environment.LOGGING) {
             FormateClass ft = MessageFormatter.format(format, arg1, arg2);
-            Log.d(tag, getCallingMethod(4) + ft.getMessage());
+            LoggerManager.getLogger().d(tag, getCallingMethod() + ft.getMessage());
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void d(String tag, String format, Object[] args) {
         if (Environment.LOGGING) {
             FormateClass ft = MessageFormatter.format(format, args);
-            Log.d(tag, getCallingMethod(4) + ft.getMessage());
+            LoggerManager.getLogger().d(tag, getCallingMethod() + ft.getMessage());
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void d(String tag, String msg, Throwable throwable) {
         if (Environment.LOGGING) {
-            Log.d(tag, getCallingMethod(4) + msg, throwable);
+            LoggerManager.getLogger().d(tag, getCallingMethod() + msg, throwable);
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void i(String tag, String msg) {
         if (Environment.LOGGING) {
-            Log.i(tag, getCallingMethod(4) + msg);
+            LoggerManager.getLogger().i(tag, getCallingMethod() + msg);
         }
     }
 
+    public static void i(String msg) {
+        if (Environment.LOGGING) {
+            LoggerManager.getLogger().v(msg);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void i(String tag, String format, Object arg) {
         if (Environment.LOGGING) {
             FormateClass ft = MessageFormatter.format(format, arg);
-            Log.i(tag, getCallingMethod(4) + ft.getMessage());
+            LoggerManager.getLogger().i(tag, getCallingMethod() + ft.getMessage());
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void i(String tag, String format, Object arg1, Object arg2) {
         if (Environment.LOGGING) {
             FormateClass ft = MessageFormatter.format(format, arg1, arg2);
-            Log.i(tag, getCallingMethod(4) + ft.getMessage());
+            LoggerManager.getLogger().i(tag, getCallingMethod() + ft.getMessage());
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void i(String tag, String format, Object[] args) {
         if (Environment.LOGGING) {
             FormateClass ft = MessageFormatter.format(format, args);
-            Log.i(tag, getCallingMethod(4) + ft.getMessage());
+            LoggerManager.getLogger().i(tag, getCallingMethod() + ft.getMessage());
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void i(String tag, String msg, Throwable throwable) {
         if (Environment.LOGGING) {
-            Log.i(tag, getCallingMethod(4) + msg, throwable);
+            LoggerManager.getLogger().i(tag, getCallingMethod() + msg, throwable);
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void w(String tag, String msg) {
         if (Environment.LOGGING) {
-            Log.w(tag, getCallingMethod(4) + msg);
+            LoggerManager.getLogger().w(tag, getCallingMethod() + msg);
         }
     }
 
+    public static void w(String msg) {
+        if (Environment.LOGGING) {
+            LoggerManager.getLogger().v(msg);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void w(String tag, String format, Object arg) {
         if (Environment.LOGGING) {
             FormateClass ft = MessageFormatter.format(format, arg);
-            Log.w(tag, getCallingMethod(4) + ft.getMessage());
+            LoggerManager.getLogger().w(tag, getCallingMethod() + ft.getMessage());
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void w(String tag, String format, Object[] args) {
         if (Environment.LOGGING) {
             FormateClass ft = MessageFormatter.format(format, args);
-            Log.w(tag, getCallingMethod(4) + ft.getMessage());
+            LoggerManager.getLogger().w(tag, getCallingMethod() + ft.getMessage());
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void w(String tag, String format, Object arg1, Object arg2) {
         if (Environment.LOGGING) {
             FormateClass ft = MessageFormatter.format(format, arg1, arg2);
-            Log.w(tag, getCallingMethod(4) + ft.getMessage());
+            LoggerManager.getLogger().w(tag, getCallingMethod() + ft.getMessage());
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void w(String tag, String msg, Throwable throwable) {
         if (Environment.LOGGING) {
-            Log.w(tag, getCallingMethod(4) + msg, throwable);
+            LoggerManager.getLogger().w(tag, getCallingMethod() + msg, throwable);
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void e(String tag, String msg) {
         if (Environment.LOGGING) {
-            Log.e(tag, getCallingMethod(4) + msg);
+            LoggerManager.getLogger().e(tag, getCallingMethod() + msg);
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void e(String tag, String format, Object arg) {
         if (Environment.LOGGING) {
             FormateClass ft = MessageFormatter.format(format, arg);
-            Log.e(tag, getCallingMethod(4) + ft.getMessage());
+            LoggerManager.getLogger().e(tag, getCallingMethod() + ft.getMessage());
         }
     }
 
+    public static void e(String msg) {
+        if (Environment.LOGGING) {
+            LoggerManager.getLogger().v(msg);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void e(String tag, String format, Object arg1, Object arg2) {
         if (Environment.LOGGING) {
             FormateClass ft = MessageFormatter.format(format, arg1, arg2);
-            Log.e(tag, getCallingMethod(4) + ft.getMessage());
+            LoggerManager.getLogger().e(tag, getCallingMethod() + ft.getMessage());
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void e(String tag, String format, Object[] args) {
         if (Environment.LOGGING) {
             FormateClass ft = MessageFormatter.format(format, args);
-            Log.e(tag, getCallingMethod(4) + ft.getMessage());
+            LoggerManager.getLogger().e(tag, getCallingMethod() + ft.getMessage());
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void e(String tag, String msg, Throwable throwable) {
         if (Environment.LOGGING) {
-            Log.e(tag, getCallingMethod(4) + msg, throwable);
+            LoggerManager.getLogger().e(tag, getCallingMethod() + msg, throwable);
         }
     }
 
-    public static void wtf(String tag, String msg) {
-        if (Environment.LOGGING) {
-            Log.wtf(tag, getCallingMethod(4) + msg);
-        }
-    }
-
-    public static void wtf(String tag, String format, Object arg) {
-        if (Environment.LOGGING) {
-            FormateClass ft = MessageFormatter.format(format, arg);
-            Log.wtf(tag, getCallingMethod(4) + ft.getMessage());
-        }
-    }
-
-    public static void wtf(String tag, String format, Object arg1, Object arg2) {
-        if (Environment.LOGGING) {
-            FormateClass ft = MessageFormatter.format(format, arg1, arg2);
-            Log.wtf(tag, getCallingMethod(4) + ft.getMessage());
-        }
-    }
-
-    public static void wtf(String tag, String format, Object[] args) {
-        if (Environment.LOGGING) {
-            FormateClass ft = MessageFormatter.format(format, args);
-            Log.wtf(tag, getCallingMethod(4) + ft.getMessage());
-        }
-    }
-
-    public static void wtf(String tag, String msg, Throwable throwable) {
-        if (Environment.LOGGING) {
-            Log.wtf(tag, getCallingMethod(4) + msg, throwable);
-        }
-    }
-
-    private static String getCallingMethod(int stack) {
-        return Thread.currentThread().getStackTrace()[stack].getMethodName() + "()" + ":"
-                + Thread.currentThread().getStackTrace()[stack].getLineNumber() + " > ";
+    private static String getCallingMethod() {
+        return Thread.currentThread().getStackTrace()[4].getMethodName() + "()" + ":"
+                + Thread.currentThread().getStackTrace()[4].getLineNumber() + " > ";
     }
 }

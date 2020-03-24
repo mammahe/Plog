@@ -17,26 +17,6 @@ class MessageFormatter {
         return arrayFormat(messagePattern, new Object[] { arg });
     }
 
-    /**
-     *
-     * Performs a two argument substitution for the 'messagePattern' passed as parameter.
-     * <p>
-     * For example,
-     *
-     * <pre>
-     * MessageFormatter.format(&quot;Hi {}. My name is {}.&quot;, &quot;Alice&quot;, &quot;Bob&quot;);
-     * </pre>
-     *
-     * will return the string "Hi Alice. My name is Bob.".
-     *
-     * @param messagePattern
-     *          The message pattern which will be parsed and formatted
-     * @param arg1
-     *          The argument to be substituted in place of the first formatting anchor
-     * @param arg2
-     *          The argument to be substituted in place of the second formatting anchor
-     * @return The formatted message
-     */
     public static FormateClass format(final String messagePattern, Object arg1, Object arg2) {
         return arrayFormat(messagePattern, new Object[] { arg1, arg2 });
     }
@@ -79,38 +59,31 @@ class MessageFormatter {
             j = messagePattern.indexOf(DELIM_STR, i);
 
             if (j == -1) {
-                // no more variables
-                if (i == 0) { // this is a simple string
+                if (i == 0) {
                     return new FormateClass(messagePattern, argArray, throwableCandidate);
-                } else { // add the tail string which contains no variables and return
-                    // the result.
+                } else {
                     sbuf.append(messagePattern.substring(i));
                     return new FormateClass(sbuf.toString(), argArray, throwableCandidate);
                 }
             } else {
                 if (isEscapedDelimeter(messagePattern, j)) {
                     if (!isDoubleEscaped(messagePattern, j)) {
-                        L--; // DELIM_START was escaped, thus should not be incremented
+                        L--;
                         sbuf.append(messagePattern.substring(i, j - 1));
                         sbuf.append(DELIM_START);
                         i = j + 1;
                     } else {
-                        // The escape character preceding the delimiter start is
-                        // itself escaped: "abc x:\\{}"
-                        // we have to consume one backward slash
                         sbuf.append(messagePattern.substring(i, j - 1));
                         deeplyAppendParameter(sbuf, argArray[L], new HashMap());
                         i = j + 2;
                     }
                 } else {
-                    // normal case
                     sbuf.append(messagePattern.substring(i, j));
                     deeplyAppendParameter(sbuf, argArray[L], new HashMap());
                     i = j + 2;
                 }
             }
         }
-        // append the characters following the last {} pair.
         sbuf.append(messagePattern.substring(i));
         return new FormateClass(sbuf.toString(), argArray, null);
     }
