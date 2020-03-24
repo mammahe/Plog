@@ -13,7 +13,7 @@
 <p><strong>Step 2.&nbsp;Add the dependency</strong></p>
 <pre class="kode code-toolbar  language-css"><code id="depCodeGradle" class=" kode  language-css"><span class="token selector">dependencies</span> <span class="token punctuation">{</span>
 	        implementation <span class="token string">'com.github.mammahe:Plog:1'</span>
-	<span class="token punctuation">}</span></code></pre>
+	<span class="token punctuation">  }</span></code></pre>
 <p><strong>Step 3. Add import in activity</strong></p>
 <pre>import com.example.logfilter.PLog;</pre>
 <p><strong>Step 4. Example usage in activity</strong></p>
