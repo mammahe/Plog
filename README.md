@@ -1,4 +1,4 @@
-<h2><strong>Print Android Framework</strong></h2>
+<h2><strong>Print Android Framework logs</strong></h2>
 <p>Goal is to print android framework logs in logcat</p>
 <h2><strong>Requirements</strong></h2>
 <p>Android 4.0 or higher&nbsp;</p>
